@@ -100,7 +100,7 @@ This script acts as the guardian of your data, used to verify the health of arch
 ### Arguments & Flags
 
 * **`EXTRACT`**: Switches the mode from verification to **full restoration**. The script will unpack the archive into a new directory suffixed with `-restored`.
-* **`--FULL`, `--FULL=1`, or `--FULL=2**`: Enables **Deep Structural Checks**. These options trigger different levels of structural integrity verification beyond the standard PAR2 and BLAKE3 checks.
+* **`--FULL`, `--FULL=1`, or `--FULL=2`**: Enables **Deep Structural Checks**. These options trigger different levels of structural integrity verification beyond the standard PAR2 and BLAKE3 checks.
 * **Input Folder**: The first non-flag argument is treated as the path to the backup directory.
 
 ### Detailed Workflow of `restorepar2`
