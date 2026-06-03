@@ -17,7 +17,7 @@ To function correctly, the suite requires the following tools to be installed on
 
 # 🚀 Quick Start
 
-### 1. Installation & Environment Set Up
+### Installation & Environment Set Up
 
 Clone the repository directly into your dedicated scripts workspace directory:
 
@@ -27,9 +27,33 @@ mkdir -p ~/scripts && cd ~/scripts
 
 # Clone the orchestrator repository
 git clone https://github.com/Kilobyte4621/archivepar2.git
-
 ```
 
+Source the scripts directly inside your active configuration file (`~/.bashrc` or `~/.zshrc`) to map it as a persistent shell utility:
+
+```bash
+echo "source ~/scripts/archivepar2/archivepar2.sh" >> ~/.bashrc
+echo "source ~/scripts/archivepar2/restorepar2.sh" >> ~/.bashrc
+echo "source ~/scripts/archivepar2/backup.sh" >> ~/.bashrc
+echo "source ~/scripts/archivepar2/folderbkp.sh" >> ~/.bashrc
+source ~/.bashrc
+```
+> 💡 Pro-Tip (Dynamic Sourcing): If you prefer not to hardcode individual source lines manually, you can use the `add2bash` utility available in the **shellutilities** repository. This tool allows you to dynamically sweep, clean, and import an entire directory of independent .sh function scripts directly into your active profile environment in one clean sweep.
+
+Once sourced, invoke the engine natively from anywhere in your filesystem simply by typing:
+
+```bash
+cd /backup/destination/location
+backup /path/to/origin/location1
+folderbkp /path/to/origin/location2
+```
+
+And to restore backed-up data:
+
+```bash
+cd /restoring/backup/location
+restorepar2 /backup/destination/location/location1-bak extract
+```
 ---
 
 ## 1. Core Component: `archivepar2` (v0.12)
