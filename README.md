@@ -169,17 +169,4 @@ The utility provides extensive feedback for every session, which is both display
 
 ---
 
-## 5. Environment & Utilities
 
-* **`add2bash` (v0.0):** Simplifies the installation of these scripts by appending a sourcing loop to your `~/.bashrc`, making all tools available globally in your shell.
-	#### Arguments and flags
-	* **`[text]`**: An optional specific string (like an alias or environment variable) to append to your `~/.bashrc`.
-	* **No Argument (Default)**: If no text is provided, it generates a shell loop that automatically **sources all `.sh` files** found in your current working directory.
-* **`sh2txt` (v0.1):** A utility to convert `.sh` scripts into `.txt` files for documentation or sharing purposes, including a recursive option for large directories.
-	#### Arguments and flags
-	* **`[directory]`**: Specifies the target directory to scan for `.sh` files. If omitted, it defaults to the **current directory (`.`)**.
-	* **Recursive Option**: Although commented out in the provided source, the script includes logic for a **recursive search** using `find` to process nested subdirectories.
-
-
-
----
