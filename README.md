@@ -15,24 +15,6 @@ To function correctly, the suite requires the following tools to be installed on
 * **`pv`** (Pipe Viewer): For real-time progress bars.
 * **`b3sum`**: For ultra-fast BLAKE3 hashing.
 
-### Getting Started
-
-1. Clone or download the scripts into a directory.
-2. Source the utilities into your environment using the provided helper:
-```bash
-./add2bash.sh
-```
-
-3. If you're not opening a new terminal, re-source your `.bashrc` file:
-```bash
-source ~/.bashrc
-```
-
-4. Run a complete, auto-verified backup of any directory:
-```bash
-backup /path/to/your/folder
-```
-
 ---
 
 ## 1. Core Component: `archivepar2` (v0.12)
