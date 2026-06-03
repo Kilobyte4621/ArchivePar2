@@ -15,6 +15,21 @@ To function correctly, the suite requires the following tools to be installed on
 * **`pv`** (Pipe Viewer): For real-time progress bars.
 * **`b3sum`**: For ultra-fast BLAKE3 hashing.
 
+# 🚀 Quick Start
+
+### 1. Installation & Environment Set Up
+
+Clone the repository directly into your dedicated scripts workspace directory:
+
+```bash
+# Create and jump into your scripts directory
+mkdir -p ~/scripts && cd ~/scripts
+
+# Clone the orchestrator repository
+git clone https://github.com/Kilobyte4621/archivepar2.git
+
+```
+
 ---
 
 ## 1. Core Component: `archivepar2` (v0.12)
