@@ -1,4 +1,4 @@
-# ArchivePar2 Shell Automation Utility (v0.12)
+# ArchivePar2 Shell Automation Utility
 
 This utility suite provides a robust framework for **data backups focusing on long-term integrity**. By combining **Zstandard (zstd)** for high-speed compression, **PAR2** for error correction, and **BLAKE3** for cryptographic hashing, it ensures that your archived data is not only compressed but also recoverable and verifiable.
 
