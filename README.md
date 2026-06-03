@@ -12,7 +12,7 @@ To function correctly, the suite requires the following tools to be installed on
 
 * **`zstd`**: High-performance compression.
 * **`par2`**: Reed-Solomon error correction.
-* **`pv` (Pipe Viewer)**: For real-time progress bars.
+* **`pv`** (Pipe Viewer): For real-time progress bars.
 * **`b3sum`**: For ultra-fast BLAKE3 hashing.
 
 ### Getting Started
