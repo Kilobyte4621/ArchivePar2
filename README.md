@@ -39,10 +39,9 @@ The `archivepar2` function is the primary creation engine. It transforms a targe
 ### Key Functionalities
 
 * **Intelligent Path Sanitization:** It automatically cleans folder names to be shell-safe (lowercase, replacing spaces with underscores, and removing special characters) before creating a dedicated `{folder}-bak` directory.
-* **Flexible Archiving Modes:** * **Split Mode (Default):** Breaks the archive into parts (defaulting to **2GB** chunks) to facilitate easier transport across different filesystems or cloud storage.
-* **Single Mode (`--SINGLE`):** Forces the creation of one single large archive file.
-
-
+* **Flexible Archiving Modes:** 
+    * **Split Mode (Default):** Breaks the archive into parts (defaulting to **2GB** chunks) to facilitate easier transport across different filesystems or cloud storage.
+    * **Single Mode (`--SINGLE`):** Forces the creation of one single large archive file.
 * **Content Integrity Verification:** Unless the **`--FAST`** flag is used, the script performs a `tar --diff` immediately after compression to ensure the archive matches the source 1:1.
 * **Cryptographic Manifests:** It generates a **BLAKE3 manifest** (`.blake3`) to record the exact cryptographic signature of the backup parts.
 
@@ -78,7 +77,6 @@ The `archivepar2` function is designed to be a "set-and-forget" creation engine 
 5. **PAR2 and Manifest Generation**:
 * It generates **PAR2 recovery blocks**, which allow for future repair of the archive if the storage media fails or bits rot.
 * It creates a **BLAKE3 manifest** (`.blake3`), providing an ultra-fast cryptographic hash of the archive for future verification.
-
 
 
 ---
