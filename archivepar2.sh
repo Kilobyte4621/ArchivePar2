@@ -1,5 +1,5 @@
-# Version Details: v0.13
-# Consertado comando "script" que inicia o `par2 create` mantendo feedback no terminal E no log. 
+# Version Details: v0.14
+# Disposição do log refinada. 
 archivepar2 () {
   local oldpwd="$PWD"
   local arch="$1"; shift
