@@ -56,7 +56,7 @@ restorepar2 /backup/destination/location/location1-bak extract
 ```
 ---
 
-## 1. Core Component: `archivepar2` (v0.12)
+## 1. Core Component: `archivepar2` (v0.13)
 
 The `archivepar2` function is the primary creation engine. It transforms a target directory into a protected, compressed archive while providing real-time performance metrics.
 

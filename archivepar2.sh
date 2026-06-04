@@ -1,5 +1,5 @@
-# Version Details: v0.12
-# Adicionado 'pv' na etapa de coleta de partes e BLAKE3 para exibir o progresso de hash em arquivos grandes.
+# Version Details: v0.13
+# Consertado comando "script" que inicia o `par2 create` mantendo feedback no terminal E no log. 
 archivepar2 () {
   local oldpwd="$PWD"
   local arch="$1"; shift
@@ -262,7 +262,11 @@ archivepar2 () {
     par2_start=$(date +%s)
     print_log "[PAR2] Creating recovery files..."
 
-    script -q -f -c "par2 create -r10 \"${out}.par2\" \"${parts[@]}\" \"$manifest\"" /tmp/par2_tty_$$
+    # Unifica os argumentos de forma segura em uma única variável antes de chamar o script
+    local par2_cmd
+    par2_cmd=$(printf "par2 create -r10 %q " "${out}.par2"; printf "%q " "${parts[@]}"; printf "%q" "$manifest")
+    
+    script -q -f /tmp/par2_tty_$$ -c "$par2_cmd"
     if [[ $? -ne 0 ]]; then par2_status="FAILED"; return 1; fi
 
     tr -d '\r' < /tmp/par2_tty_$$ | grep -v -E '[0-9]+\.[0-9]%|Opening:|Processing:|Constructing:' >> "$logfile"
@@ -337,7 +341,7 @@ archivepar2 () {
     par2_start=$(date +%s)
     print_log "\n[PAR2] Creating recovery files..."
 
-    script -q -f -c "par2 create -r10 \"${out}.par2\" \"${out}.tar.zst\" \"$manifest\"" /tmp/par2_tty_$$
+    script -q -f /tmp/par2_tty_$$ -c 'par2 create -r10 "'"${out}.par2"'" "'"${out}.tar.zst"'" "'"$manifest"'"'
     if [[ $? -ne 0 ]]; then par2_status="FAILED"; return 1; fi
 
     tr -d '\r' < /tmp/par2_tty_$$ | grep -v -E '[0-9]+\.[0-9]%|Opening:|Processing:|Constructing:' >> "$logfile"
