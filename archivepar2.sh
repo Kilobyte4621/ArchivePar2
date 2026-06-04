@@ -235,6 +235,13 @@ archivepar2 () {
 
       zstd_golden_line=$(tr '\r' '\n' < /tmp/zstd_err_$$ | grep -E 'GiB|MiB|B =>' | tail -n1 | sed 's/^[ \t]*//')
 
+      if [[ -n "$zstd_golden_line" ]]; then
+        print_log "--------------------------------------------------"
+        print_log "            ZSTD COMPRESSION METRICS"
+        print_log "--------------------------------------------------"
+        print_log "$zstd_golden_line"
+      fi
+
       print_log "\n[SPLIT MODE] Collecting split parts and hashing individual files..."
       update_parts_array
       [[ ${#parts[@]} -gt 0 ]] || { print_log "ERROR: no split parts found"; return 1; }
@@ -330,6 +337,13 @@ archivepar2 () {
 
       zstd_golden_line=$(tr '\r' '\n' < /tmp/zstd_err_$$ | grep -E 'GiB|MiB|B =>' | tail -n1 | sed 's/^[ \t]*//')
 
+      if [[ -n "$zstd_golden_line" ]]; then
+        print_log "--------------------------------------------------"
+        print_log "            ZSTD COMPRESSION METRICS"
+        print_log "--------------------------------------------------"
+        print_log "$zstd_golden_line"
+      fi
+
       show_manifest 
 
       comp_end=$(date +%s)
@@ -360,15 +374,7 @@ archivepar2 () {
   t_end=$(date +%s)
   t_total=$(format_duration $((t_end - t_start)))
 
-  if [[ -n "$zstd_golden_line" ]]; then
-    {
-      echo "--------------------------------------------------"
-      echo "            ZSTD COMPRESSION METRICS"
-      echo "--------------------------------------------------"
-      echo "$zstd_golden_line"
-    } | tee -a "$logfile"
-  fi
-
+  
   {
     echo "--------------------------------------------------"
     echo "                PERFORMANCE SUMMARY"
