@@ -190,6 +190,7 @@ archivepar2 () {
         print_log "[BLAKE3] Manifest OK"
         if check_content_integrity; then
           print_log "[RESUME] Existing parts are healthy! Skipping compression stage."
+          show_manifest
           run_compression=0
         fi
       elif [[ $? -eq 2 ]]; then
@@ -285,6 +286,7 @@ archivepar2 () {
         print_log "[BLAKE3] Manifest OK"
         if check_content_integrity; then
           print_log "[RESUME] Existing archive is healthy! Skipping compression stage."
+          show_manifest
           run_compression=0
         fi
       elif [[ $? -eq 2 ]]; then
@@ -328,7 +330,7 @@ archivepar2 () {
 
       zstd_golden_line=$(tr '\r' '\n' < /tmp/zstd_err_$$ | grep -E 'GiB|MiB|B =>' | tail -n1 | sed 's/^[ \t]*//')
 
-      show_manifest
+      show_manifest 
 
       comp_end=$(date +%s)
       t_compress_dur=$(format_duration $((comp_end - comp_start)))
@@ -350,6 +352,7 @@ archivepar2 () {
     t_par2_dur=$(format_duration $((par2_end - par2_start)))
     par2_status="SUCCESS"
   fi
+
 
   # ------------------------------------------------------------
   # EXIBIÇÃO E GRAVAÇÃO DO RESUMO DE PERFORMANCE FINAL
